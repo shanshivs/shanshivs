@@ -1,0 +1,8 @@
+node{
+    stage("Clone"){
+        git branch: 'main', url: 'https://github.com/shanshivs/shanshivs.git'
+    }
+    stage("Print"){
+        sh('cat DSLscript')
+    }
+}
