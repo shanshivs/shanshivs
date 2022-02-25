@@ -1,0 +1,23 @@
+job('generatedjob2'){
+  scm{
+       git('https://github.com/shanshivs/shanshivs.git')
+  }
+  parameters{
+       stringParam('Name','DefaultName','FirstParam') 
+  }
+  steps {
+       shell('echo $JOB_NAME')
+       shell('echo $BUILD_NUMBER')
+       shell('echo $Name')
+    downstreamParameterized {
+      trigger('paramJob'){
+        parameters {
+             predefinedProp('Name', '$Name') 
+        publishers{
+             downstream('testgit', 'SUCCESS')
+          }
+        }
+      }
+    }
+  }
+}
