@@ -11,7 +11,7 @@ def jsonSlurper2 = new JsonSlurper()
 //data2 = jsonSlurper2.parse(jobs)
 //def allSJObs = data2.jobs as Object
 //data2.jobs.each
-for (i=0;i=10;i++)
+for (i=0;i<10;i++)
   {
     println("Create Job i")
 
